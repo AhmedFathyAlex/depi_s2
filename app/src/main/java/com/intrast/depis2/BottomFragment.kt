@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 
 
 class BottomFragment : Fragment() {
@@ -16,6 +17,10 @@ class BottomFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_bottom, container, false)
+    }
+    fun setText(name:String){
+        val textView = view?.findViewById<TextView>(R.id.textView)
+        textView?.text = name
     }
 
 }

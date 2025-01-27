@@ -17,4 +17,10 @@ class SecondActivity : AppCompatActivity() {
             insets
         }
     }
+    fun receiveData(name:String){
+        val bottomFragment = supportFragmentManager.findFragmentById(R.id.bottomFragment)
+                as BottomFragment
+        bottomFragment.setText(name);
+
+    }
 }
