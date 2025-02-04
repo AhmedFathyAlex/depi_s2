@@ -23,4 +23,12 @@ class BottomFragment : Fragment() {
         textView?.text = name
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val name = arguments?.getString("Name")
+        val textView = view.findViewById<TextView>(R.id.textView)
+        textView.text = name
+
+    }
+
 }

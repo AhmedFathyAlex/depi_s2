@@ -25,15 +25,20 @@ class TopFragment : Fragment() {
         val editText = view.findViewById<EditText>(R.id.editText)
         button.setOnClickListener {
             val name = editText.text.toString()
-//            Toast.makeText(context, "Hello $name", Toast.LENGTH_SHORT).show()
             editText.text.clear()
-            sendData(name)
+            if(activity is MainActivity){
+                val activity = activity as MainActivity
+                activity.moveDataToBottomFragment(name)
+            }else if (activity is SecondActivity){
+                val activity = activity as SecondActivity
+                activity.navigateToBottomFragment(name)
+            }
+
         }
     }
     // send data to SecondActivity
     fun sendData(name:String){
         val secActivity = activity as SecondActivity
-        secActivity.receiveData(name)
     }
 
 }
