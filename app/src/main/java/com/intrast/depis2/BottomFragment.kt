@@ -29,15 +29,12 @@ class BottomFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
        // val name = arguments?.getString("Name") // not safe
 
-        val args = BottomFragmentArgs.fromBundle(requireArguments())
-        val name:String = args.name // with safe args
-        setText(name)
-        val button = view.findViewById<Button>(R.id.button2)
-        button.setOnClickListener{
-            val directions = BottomFragmentDirections.actionBottomFragmentDestinationToMainActivity()
-            findNavController().navigate(directions)
-
+        if(activity is NavActivity){
+            val args = BottomFragmentArgs.fromBundle(requireArguments())
+            val name:String = args.name // with safe args
+            setText(name)
         }
+
 
     }
 

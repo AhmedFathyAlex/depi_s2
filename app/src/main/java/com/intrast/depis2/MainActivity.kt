@@ -7,14 +7,17 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.intrast.depis2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    lateinit var binding: ActivityMainBinding
     val TAG = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d(TAG, "onCreate: ")
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-       setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+       setContentView(binding.root)
 
     }
 
