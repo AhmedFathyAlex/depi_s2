@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+     <variable
+         name="viewModel"
+         type="com.intrast.depis2.ScoreViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -52,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:text="0"
+            android:text="@{String.valueOf(viewModel.teamAScore)}"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="@+id/textView2"
             app:layout_constraintStart_toStartOf="@+id/textView2"
@@ -62,7 +64,7 @@
             android:id="@+id/teamBScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
+            android:text="@{String.valueOf(viewModel.teamBScore)}"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="@+id/textView3"
             app:layout_constraintStart_toStartOf="@+id/textView3"
@@ -70,6 +72,7 @@
 
         <Button
             android:id="@+id/addScoreTeamA"
+            android:onClick="@{view -> viewModel.scoreGoal(true)}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="104dp"
@@ -80,6 +83,7 @@
 
         <Button
             android:id="@+id/addScoreTeamB"
+            android:onClick="@{view -> viewModel.scoreGoal(false)}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+1"
@@ -89,6 +93,7 @@
 
         <Button
             android:id="@+id/resetButton"
+            android:onClick="@{view -> viewModel.reset()}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="212dp"
